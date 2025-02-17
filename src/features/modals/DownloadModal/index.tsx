@@ -33,6 +33,8 @@ const getDownloadFormat = (format: Extensions) => {
 };
 
 const swatches = [
+  "#F2F3F4",
+  "#181818",
   "#B80000",
   "#DB3E00",
   "#FCCB00",
@@ -65,14 +67,14 @@ function downloadURI(uri: string, name: string) {
 export const DownloadModal = ({ opened, onClose }: ModalProps) => {
   const [extension, setExtension] = React.useState(Extensions.PNG);
   const [fileDetails, setFileDetails] = React.useState({
-    filename: "jsoncrack.com",
-    backgroundColor: "#FFFFFF",
+    filename: " ",
+    backgroundColor: "#F2F3F4",
     quality: 1,
   });
 
   const clipboardImage = async () => {
     try {
-      toast.loading("Copying to clipboard...", { id: "toastClipboard" });
+      toast.loading("Copiando para a área de transferência....", { id: "toastClipboard" });
 
       const imageElement = document.querySelector("svg[id*='ref']") as HTMLElement;
 
@@ -89,10 +91,10 @@ export const DownloadModal = ({ opened, onClose }: ModalProps) => {
         }),
       ]);
 
-      toast.success("Copied to clipboard");
+      toast.success("Copiado para a área de transferência");
       gaEvent("clipboard_img");
     } catch (error) {
-      toast.error("Failed to copy to clipboard");
+      toast.error("Falha ao copiar para a área de transferência");
     } finally {
       toast.dismiss("toastClipboard");
       onClose();
@@ -101,7 +103,7 @@ export const DownloadModal = ({ opened, onClose }: ModalProps) => {
 
   const exportAsImage = async () => {
     try {
-      toast.loading("Downloading...", { id: "toastDownload" });
+      toast.loading("Baixando...", { id: "toastDownload" });
 
       const imageElement = document.querySelector("svg[id*='ref']") as HTMLElement;
 
@@ -113,7 +115,7 @@ export const DownloadModal = ({ opened, onClose }: ModalProps) => {
       downloadURI(dataURI, `${fileDetails.filename}.${extension}`);
       gaEvent("download_img", { label: extension });
     } catch (error) {
-      toast.error("Failed to download image!");
+      toast.error("Falha ao baixar a imagem!");
     } finally {
       toast.dismiss("toastDownload");
       onClose();
@@ -124,9 +126,9 @@ export const DownloadModal = ({ opened, onClose }: ModalProps) => {
     setFileDetails({ ...fileDetails, [key]: value });
 
   return (
-    <Modal opened={opened} onClose={onClose} title="Download Image" centered>
+    <Modal opened={opened} onClose={onClose} title="Gerar Imagem do Diagrama" centered>
       <TextInput
-        label="File Name"
+        label="Nome do Arquivo"
         value={fileDetails.filename}
         onChange={e => updateDetails("filename", e.target.value)}
         mb="lg"
@@ -143,7 +145,7 @@ export const DownloadModal = ({ opened, onClose }: ModalProps) => {
         mb="lg"
       />
       <ColorInput
-        label="Background Color"
+        label="Cor do Fundo"
         value={fileDetails.backgroundColor}
         onChange={color => updateDetails("backgroundColor", color)}
         withEyeDropper={false}
@@ -160,10 +162,10 @@ export const DownloadModal = ({ opened, onClose }: ModalProps) => {
       <Divider my="xs" />
       <Group justify="right">
         <Button leftSection={<FiCopy />} onClick={clipboardImage}>
-          Clipboard
+        Área de transferência
         </Button>
         <Button color="green" leftSection={<FiDownload />} onClick={exportAsImage}>
-          Download
+          Baixar
         </Button>
       </Group>
     </Modal>

@@ -52,7 +52,7 @@ export const ZoomMenu = () => {
             gaEvent("zoom_in");
           }}
         >
-          <Text size="xs">Zoom in</Text>
+          <Text size="xs">Ampliar</Text>
         </Menu.Item>
         <Menu.Item
           rightSection="-"
@@ -61,16 +61,16 @@ export const ZoomMenu = () => {
             gaEvent("zoom_out");
           }}
         >
-          <Text size="xs">Zoom out</Text>
+          <Text size="xs">Reduzir</Text>
         </Menu.Item>
         <Menu.Item
-          rightSection="⇧ 1"
+          rightSection="Shift + 1"
           onClick={() => {
             centerView();
             gaEvent("center_view");
           }}
         >
-          <Text size="xs">Zoom to fit</Text>
+          <Text size="xs">Ajustar à tela</Text>
         </Menu.Item>
         <Menu.Item
           onClick={() => {
@@ -78,16 +78,16 @@ export const ZoomMenu = () => {
             gaEvent("zoom_50%");
           }}
         >
-          <Text size="xs">Zoom to %50</Text>
+          <Text size="xs">Ampliar para %50</Text>
         </Menu.Item>
         <Menu.Item
-          rightSection="⇧ 0"
+          rightSection="Shift + 0"
           onClick={() => {
             setZoomFactor(100 / 100);
             gaEvent("zoom_100%");
           }}
         >
-          <Text size="xs">Zoom to %100</Text>
+          <Text size="xs">Ampliar para %100</Text>
         </Menu.Item>
         <Menu.Item
           onClick={() => {
@@ -95,7 +95,7 @@ export const ZoomMenu = () => {
             gaEvent("zoom_200%");
           }}
         >
-          <Text size="xs">Zoom to %200</Text>
+          <Text size="xs">Ampliar para %200</Text>
         </Menu.Item>
       </Menu.Dropdown>
     </Menu>

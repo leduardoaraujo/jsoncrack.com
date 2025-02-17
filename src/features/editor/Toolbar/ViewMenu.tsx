@@ -81,7 +81,7 @@ export const ViewMenu = () => {
       <Menu.Target>
         <StyledToolElement onClick={() => gaEvent("show_view_menu")}>
           <Flex align="center" gap={3}>
-            View <CgChevronDown />
+            Visualizar <CgChevronDown />
           </Flex>
         </StyledToolElement>
       </Menu.Target>
@@ -95,8 +95,8 @@ export const ViewMenu = () => {
             gaEvent("change_view_mode", { label: e });
           }}
           data={[
-            { value: ViewMode.Graph, label: "Graph" },
-            { value: ViewMode.Tree, label: "Tree" },
+            { value: ViewMode.Graph, label: "Diagrama" },
+            { value: ViewMode.Tree, label: "Árvore" },
           ]}
           fullWidth
         />
@@ -112,11 +112,11 @@ export const ViewMenu = () => {
               leftSection={<StyledFlowIcon rotate={rotateLayout(direction || "RIGHT")} />}
               rightSection={
                 <Text ml="md" fz={10} c="dimmed">
-                  {coreKey} Shift D
+                 Shift + D
                 </Text>
               }
             >
-              Rotate Layout
+              Rotacionar Layout
             </Menu.Item>
             <Menu.Item
               fz={12}
@@ -127,15 +127,15 @@ export const ViewMenu = () => {
               leftSection={graphCollapsed ? <VscExpandAll /> : <VscCollapseAll />}
               rightSection={
                 <Text ml="md" fz={10} c="dimmed">
-                  {coreKey} Shift C
+                 Shift + C
                 </Text>
               }
             >
-              {graphCollapsed ? "Expand" : "Collapse"} Graph
+              {graphCollapsed ? "Expandir" : "Colapssar"} Visual
             </Menu.Item>
             <Menu.Item fz={12} onClick={focusFirstNode} leftSection={<VscTarget />}>
-              Focus to First Node
-            </Menu.Item>
+              Focar no Card Inicial
+              </Menu.Item>
           </>
         )}
       </Menu.Dropdown>

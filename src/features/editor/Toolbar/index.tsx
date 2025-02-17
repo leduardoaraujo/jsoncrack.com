@@ -67,7 +67,6 @@ export const Toolbar = ({ isWidget = false }: ToolbarProps) => {
               <JSONCrackLogo fontSize="0.8rem" hideLogo />
             </Flex>
           </StyledToolElement>
-
           <Select
             defaultValue="json"
             size="xs"
@@ -85,19 +84,7 @@ export const Toolbar = ({ isWidget = false }: ToolbarProps) => {
         </Group>
       )}
       <Group gap="6" justify="right" w="100%" style={{ flexWrap: "nowrap" }}>
-        {!isWidget && (
-          <Button
-            variant="light"
-            color="gray"
-            size="compact-sm"
-            fz="12"
-            fw="600"
-            mr="6"
-            onClick={() => setVisible("UpgradeModal", true)}
-          >
-            JSON Crack v2.0 🔥
-          </Button>
-        )}
+        {}
         <SearchInput />
         {!isWidget && (
           <>
@@ -108,11 +95,6 @@ export const Toolbar = ({ isWidget = false }: ToolbarProps) => {
               <FiDownload size="18" />
             </StyledToolElement>
             <ZoomMenu />
-            <Link href="https://github.com/AykutSarac/jsoncrack.com" rel="noopener" target="_blank">
-              <StyledToolElement title="GitHub">
-                <FaGithub size="18" />
-              </StyledToolElement>
-            </Link>
             <OptionsMenu />
             <StyledToolElement title="Fullscreen" $hide={isWidget} onClick={fullscreenBrowser}>
               <AiOutlineFullscreen size="18" />

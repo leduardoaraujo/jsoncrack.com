@@ -27,17 +27,17 @@ export const FileMenu = () => {
       <Menu.Target>
         <StyledToolElement title="File">
           <Flex align="center" gap={3}>
-            File
+            Arquivos
             <CgChevronDown />
           </Flex>
         </StyledToolElement>
       </Menu.Target>
       <Menu.Dropdown>
         <Menu.Item fz={12} onClick={() => setVisible("ImportModal", true)}>
-          Import
+          Importar
         </Menu.Item>
         <Menu.Item fz={12} onClick={handleSave}>
-          Export
+          Exportar
         </Menu.Item>
       </Menu.Dropdown>
     </Menu>

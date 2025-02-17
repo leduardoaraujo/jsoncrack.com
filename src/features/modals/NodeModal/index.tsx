@@ -32,14 +32,14 @@ export const NodeModal = ({ opened, onClose }: ModalProps) => {
             <CodeHighlight code={nodeData} miw={350} maw={600} language="json" withCopyButton />
           </ScrollArea.Autosize>
         </Stack>
-        <Button
+        {/* <Button
           onClick={() => {
             setVisible("UpgradeModal", true);
             gaEvent("click_node_edit");
           }}
         >
           Edit
-        </Button>
+        </Button> */}
         <Text fz="xs" fw={500}>
           JSON Path
         </Text>
